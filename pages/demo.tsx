@@ -6,6 +6,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Webcam from "react-webcam";
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 
+
 const questions = [
   {
     id: 1,
@@ -105,6 +106,8 @@ export default function DemoPage() {
   }, [videoEnded, webcamRef, setCapturing, mediaRecorderRef]);
 
   const handleStartCaptureClick = useCallback(() => {
+    console.log("Method : ------ handleStartCaptureClick ------- ");
+
     const startTimer = document.getElementById("startTimer");
     if (startTimer) {
       startTimer.style.display = "none";
@@ -125,6 +128,8 @@ export default function DemoPage() {
   );
 
   const handleStopCaptureClick = useCallback(() => {
+    console.log("Method : ------ handleStopCaptureClick ------- ");
+
     if (mediaRecorderRef.current) {
       mediaRecorderRef.current.stop();
     }
@@ -149,6 +154,9 @@ export default function DemoPage() {
   });
 
   const handleDownload = async () => {
+
+    console.log("Method : ------ handleDownload ------- ");
+
     if (recordedChunks.length) {
       setSubmitting(true);
       setStatus("Processing");
@@ -306,36 +314,7 @@ export default function DemoPage() {
       {step === 3 ? (
         <div className="w-full min-h-screen flex flex-col px-4 pt-2 pb-8 md:px-8 md:py-2 bg-[#FCFCFC] relative overflow-x-hidden">
           <p className="absolute w-full top-0 h-[60px] flex flex-row justify-between -ml-4 md:-ml-8">
-            <span className="text-sm text-[#1a2b3b] font-medium">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium opacity-20">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium opacity-20 hidden sm:block">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium hidden sm:block">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium opacity-20 hidden xl:block">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium opacity-20 hidden sm:block">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium opacity-20 hidden sm:block">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium hidden sm:block">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium opacity-20 hidden xl:block">
-              demo interview
-            </span>
+          
           </p>
           {completed ? (
             <div className="w-full flex flex-col max-w-[1080px] mx-auto mt-[10vh] overflow-y-auto pb-8 md:pb-12">
@@ -389,39 +368,6 @@ export default function DemoPage() {
                     as you leave the page.
                   </p>
                 </div>
-                <Link
-                  href="https://github.com/Tameyer41/HUKUM"
-                  target="_blank"
-                  className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
-                  style={{
-                    boxShadow:
-                      "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
-                  }}
-                >
-                  <span className="w-5 h-5 rounded-full bg-[#407BBF] flex items-center justify-center">
-                    <svg
-                      className="w-[16px] h-[16px] text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4.75 7.75C4.75 6.64543 5.64543 5.75 6.75 5.75H17.25C18.3546 5.75 19.25 6.64543 19.25 7.75V16.25C19.25 17.3546 18.3546 18.25 17.25 18.25H6.75C5.64543 18.25 4.75 17.3546 4.75 16.25V7.75Z"
-                      ></path>
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5.5 6.5L12 12.25L18.5 6.5"
-                      ></path>
-                    </svg>
-                  </span>
-                  Star on Github
-                </Link>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -461,15 +407,15 @@ export default function DemoPage() {
                 <div className="w-full flex flex-col max-w-[1080px] mx-auto justify-center">
                   <h2 className="text-2xl font-semibold text-left text-[#1D2B3A] mb-2">
                     {selected.name === "Behavioral"
-                      ? `Tell me about yourself. Why don${`’`}t you walk me through your resume?`
+                      ? `Explain the main modules in SAP ERP`
                       : selectedInterviewer.name === "Prasanna"
-                      ? "What is a Hash Table, and what is the average case and worst case time for each of its operations?"
+                      ? "What are SAP Business Objects (BOBJ) and its reporting capabilities?"
                       : selectedInterviewer.name === "Malli"
                       ? "Uber is looking to expand its product line. Talk me through how you would approach this problem."
                       : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
                   </h2>
                   <span className="text-[14px] leading-[20px] text-[#1a2b3b] font-normal mb-4">
-                    Asked by top companies like Google, Facebook and more
+                    Sample questions based on your technical stream
                   </span>
                   <motion.div
                     initial={{ y: -20 }}
@@ -513,32 +459,32 @@ export default function DemoPage() {
                       {isVisible && ( // If the video is visible (on screen) we show it
                         <div className="block absolute top-[10px] sm:top-[20px] lg:top-[40px] left-auto right-[10px] sm:right-[20px] md:right-10 h-[80px] sm:h-[140px] md:h-[180px] aspect-video rounded z-20">
                           <div className="h-full w-full aspect-video rounded md:rounded-lg lg:rounded-xl">
-                            <video
-                              id="question-video"
-                              onEnded={() => setVideoEnded(true)}
-                              controls={false}
-                              ref={vidRef}
-                              playsInline
-                              className="h-full object-cover w-full rounded-md md:rounded-[12px] aspect-video"
-                              crossOrigin="anonymous"
-                            >
+                          <video
+                            id="question-video"
+                            onEnded={() => setVideoEnded(true)}
+                            controls={false}
+                            ref={vidRef}
+                            playsInline
+                            className="h-full object-cover w-full rounded-md md:rounded-[12px] aspect-video"
+                            crossOrigin="anonymous"
+                          >
                               <source
                                 src={
                                   selectedInterviewer.name === "Prasanna"
                                     ? selected.name === "Behavioral"
-                                      ? "https://liftoff-public.s3.amazonaws.com/DemoInterviewMale.mp4"
-                                      : "https://liftoff-public.s3.amazonaws.com/JohnTechnical.mp4"
+                                      ? "SAP_Q1.mp4"
+                                      : "SAP_Q1.mp4"
                                     : selectedInterviewer.name === "Malli"
                                     ? selected.name === "Behavioral"
-                                      ? "https://liftoff-public.s3.amazonaws.com/RichardBehavioral.mp4"
-                                      : "https://liftoff-public.s3.amazonaws.com/RichardTechnical.mp4"
+                                      ? "SAP_Q1.mp4"
+                                      : "SAP_Q1.mp4"
                                     : selectedInterviewer.name === "Subir"
                                     ? selected.name === "Behavioral"
-                                      ? "https://liftoff-public.s3.amazonaws.com/BehavioralSarah.mp4"
-                                      : "https://liftoff-public.s3.amazonaws.com/SarahTechnical.mp4"
+                                      ? "SAP_Q2.mp4"
+                                      : "SAP_Q2.mp4"
                                     : selected.name === "Behavioral"
-                                    ? "https://liftoff-public.s3.amazonaws.com/DemoInterviewMale.mp4"
-                                    : "https://liftoff-public.s3.amazonaws.com/JohnTechnical.mp4"
+                                      ? "SAP_Q2.mp4"
+                                      : "SAP_Q2.mp4"
                                 }
                                 type="video/mp4"
                               />
@@ -645,7 +591,7 @@ export default function DemoPage() {
                                       </div>
                                     ) : (
                                       <div className="flex items-center justify-center gap-x-2">
-                                        <span>Process transcript</span>
+                                        <span>Process transcript now</span>
                                         <svg
                                           className="w-5 h-5"
                                           viewBox="0 0 24 24"
@@ -762,39 +708,6 @@ export default function DemoPage() {
                     >
                       Restart demo
                     </button>
-                    <Link
-                      href="https://github.com/Tameyer41/HUKUM"
-                      target="_blank"
-                      className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
-                      style={{
-                        boxShadow:
-                          "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
-                      }}
-                    >
-                      <span className="w-5 h-5 rounded-full bg-[#407BBF] flex items-center justify-center">
-                        <svg
-                          className="w-[16px] h-[16px] text-white"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M4.75 7.75C4.75 6.64543 5.64543 5.75 6.75 5.75H17.25C18.3546 5.75 19.25 6.64543 19.25 7.75V16.25C19.25 17.3546 18.3546 18.25 17.25 18.25H6.75C5.64543 18.25 4.75 17.3546 4.75 16.25V7.75Z"
-                          ></path>
-                          <path
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5.5 6.5L12 12.25L18.5 6.5"
-                          ></path>
-                        </svg>
-                      </span>
-                      Star on Github
-                    </Link>
                   </div>
                 </div>
               )}
@@ -809,24 +722,7 @@ export default function DemoPage() {
             transition={{ duration: 1.25, ease: [0.23, 1, 0.32, 1] }}
             className="absolute w-full md:w-1/2 top-0 h-[60px] flex flex-row justify-between"
           >
-            <span className="text-sm text-[#1a2b3b] font-medium">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium opacity-20">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium opacity-20 hidden sm:block">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium hidden sm:block">
-              demo interview
-            </span>
-            <span className="text-sm text-[#1a2b3b] font-medium opacity-20 hidden xl:block">
-              demo interview
-            </span>
+
           </motion.p>
           <div className="w-full min-h-[60vh] md:w-1/2 md:h-screen flex flex-col px-4 pt-2 pb-8 md:px-0 md:py-2 bg-[#FCFCFC] justify-center">
             <div className="h-full w-full items-center justify-center flex flex-col">
