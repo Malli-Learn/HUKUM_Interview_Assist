@@ -23,20 +23,20 @@ const questions = [
 
 const interviewers = [
   {
-    id: "John",
-    name: "John",
+    id: "Prasanna",
+    name: "Prasanna",
     description: "Software Engineering",
     level: "L3",
   },
   {
-    id: "Richard",
-    name: "Richard",
+    id: "Malli",
+    name: "Malli",
     description: "Product Management",
     level: "L5",
   },
   {
-    id: "Sarah",
-    name: "Sarah",
+    id: "Subir",
+    name: "Subir",
     description: "Other",
     level: "L7",
   },
@@ -195,9 +195,9 @@ export default function DemoPage() {
       const question =
         selected.name === "Behavioral"
           ? `Tell me about yourself. Why don${`’`}t you walk me through your resume?`
-          : selectedInterviewer.name === "John"
+          : selectedInterviewer.name === "Prasanna"
           ? "What is a Hash Table, and what is the average case and worst case time for each of its operations?"
-          : selectedInterviewer.name === "Richard"
+          : selectedInterviewer.name === "Malli"
           ? "Uber is looking to expand its product line. Talk me through how you would approach this problem."
           : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?";
 
@@ -462,9 +462,9 @@ export default function DemoPage() {
                   <h2 className="text-2xl font-semibold text-left text-[#1D2B3A] mb-2">
                     {selected.name === "Behavioral"
                       ? `Tell me about yourself. Why don${`’`}t you walk me through your resume?`
-                      : selectedInterviewer.name === "John"
+                      : selectedInterviewer.name === "Prasanna"
                       ? "What is a Hash Table, and what is the average case and worst case time for each of its operations?"
-                      : selectedInterviewer.name === "Richard"
+                      : selectedInterviewer.name === "Malli"
                       ? "Uber is looking to expand its product line. Talk me through how you would approach this problem."
                       : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
                   </h2>
@@ -524,15 +524,15 @@ export default function DemoPage() {
                             >
                               <source
                                 src={
-                                  selectedInterviewer.name === "John"
+                                  selectedInterviewer.name === "Prasanna"
                                     ? selected.name === "Behavioral"
                                       ? "https://liftoff-public.s3.amazonaws.com/DemoInterviewMale.mp4"
                                       : "https://liftoff-public.s3.amazonaws.com/JohnTechnical.mp4"
-                                    : selectedInterviewer.name === "Richard"
+                                    : selectedInterviewer.name === "Malli"
                                     ? selected.name === "Behavioral"
                                       ? "https://liftoff-public.s3.amazonaws.com/RichardBehavioral.mp4"
                                       : "https://liftoff-public.s3.amazonaws.com/RichardTechnical.mp4"
-                                    : selectedInterviewer.name === "Sarah"
+                                    : selectedInterviewer.name === "Subir"
                                     ? selected.name === "Behavioral"
                                       ? "https://liftoff-public.s3.amazonaws.com/BehavioralSarah.mp4"
                                       : "https://liftoff-public.s3.amazonaws.com/SarahTechnical.mp4"
@@ -1599,7 +1599,7 @@ export default function DemoPage() {
                       R
                     </div>
                     <p className="ml-[4px] mr-[6px] flex-shrink-0">
-                      Richard Monroe
+                      Malli Monroe
                     </p>
                     <div className="ml-auto">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24">
@@ -1655,9 +1655,9 @@ export default function DemoPage() {
                     >
                       {selected.name === "Behavioral"
                         ? "Tell me about yourself"
-                        : selectedInterviewer.name === "John"
+                        : selectedInterviewer.name === "Prasanna"
                         ? "What is a Hash Table, and what is the average case for each of its operations?"
-                        : selectedInterviewer.name === "Richard"
+                        : selectedInterviewer.name === "Malli"
                         ? "Uber is looking to expand its product line. How would you go about doing this?"
                         : "You have a 3-gallon jug and 5-gallon jug, how do you measure out exactly 4 gallons?"}
                     </motion.span>
@@ -1687,37 +1687,37 @@ export default function DemoPage() {
                     transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                     className="mt-[12px] flex bg-gray-100 h-[80%] rounded-lg relative ring-1 ring-gray-900/5 shadow-md"
                   >
-                    {selectedInterviewer.name === "John" ? (
+                    {selectedInterviewer.name === "Prasanna" ? (
                       <motion.img
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                        key="John"
-                        src="/placeholders/John.webp"
-                        alt="John's Interviewer Profile"
+                        key="Prasanna"
+                        src="/placeholders/Prasanna.webp"
+                        alt="Prasanna's Interviewer Profile"
                         className="absolute top-6 left-6 w-[30%] aspect-video bg-gray-700 rounded ring-1 ring-gray-900/5 shadow-md object-cover"
                       />
-                    ) : selectedInterviewer.name === "Richard" ? (
+                    ) : selectedInterviewer.name === "Malli" ? (
                       <motion.img
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                        key="Richard"
-                        src="/placeholders/Richard.webp"
-                        alt="Richard's Interviewer Profile"
+                        key="Malli"
+                        src="/placeholders/Malli.webp"
+                        alt="Malli's Interviewer Profile"
                         className="absolute top-6 left-6 w-[30%] aspect-video bg-gray-700 rounded ring-1 ring-gray-900/5 shadow-md object-cover"
                       />
-                    ) : selectedInterviewer.name === "Sarah" ? (
+                    ) : selectedInterviewer.name === "Subir" ? (
                       <motion.img
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                        key="Sarah"
-                        src="/placeholders/Sarah.webp"
-                        alt="Sarah's Interviewer Profile"
+                        key="Subir"
+                        src="/placeholders/Subir.webp"
+                        alt="Subir's Interviewer Profile"
                         className="absolute top-6 left-6 w-[30%] aspect-video bg-gray-700 rounded ring-1 ring-gray-900/5 shadow-md object-cover"
                       />
                     ) : (
